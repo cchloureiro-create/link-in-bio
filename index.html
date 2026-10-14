@@ -1,910 +1,314 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Questionário Pré-Consulta CHRONOS Confidencial</title>
+<title>CHRONOS · Sono, Ritmo e Longevidade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap">
 <style>
-/* ── tokens ──────────────────────────────────────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --navy:   #153D43;
+  --dark:   #1a3d43;
   --teal:   #245862;
+  --teal2:  #2d6b78;
   --gold:   #C9A86A;
-  --cream:  #F4EFE4;
-  --bg:     #FFFDFA;
-  --bg2:    #F4EFE4;
-  --border: #D5CFC3;
-  --fg:     #1A1A1A;
-  --fg2:    #555;
-  --fg3:    #888;
-  --check-bg: #FFFDFA;
-  --check-border: #B8B0A0;
-  --check-on: var(--teal);
-  --input-bg: #FFFEFB;
-  --section-hd: var(--navy);
-  --section-hd-fg: #FFFFFF;
-  --sub-hd: var(--teal);
-  --sub-hd-fg: #FFFFFF;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --navy:   #153D43;
-    --teal:   #245862;
-    --gold:   #D4B87A;
-    --cream:  #1C1A17;
-    --bg:     #141210;
-    --bg2:    #1A1815;
-    --border: #2E2B24;
-    --fg:     #F0EDE6;
-    --fg2:    #B8B0A0;
-    --fg3:    #7A7268;
-    --check-bg: #1C1A17;
-    --check-border: #5A5347;
-    --check-on: var(--teal);
-    --input-bg: #1A1815;
-    --section-hd: #0E2528;
-    --section-hd-fg: #F0EDE6;
-    --sub-hd: #162E34;
-    --sub-hd-fg: #D4B87A;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --navy:   #153D43;
-  --teal:   #245862;
-  --gold:   #D4B87A;
-  --cream:  #1C1A17;
-  --bg:     #141210;
-  --bg2:    #1A1815;
-  --border: #2E2B24;
-  --fg:     #F0EDE6;
-  --fg2:    #B8B0A0;
-  --fg3:    #7A7268;
-  --check-bg: #1C1A17;
-  --check-border: #5A5347;
-  --check-on: var(--teal);
-  --input-bg: #1A1815;
-  --section-hd: #0E2528;
-  --section-hd-fg: #F0EDE6;
-  --sub-hd: #162E34;
-  --sub-hd-fg: #D4B87A;
-  color-scheme: dark;
+  --cream:  #f5f0e8;
+  --light:  #eaf3f4;
+  --text:   #1a1a1a;
+  --muted:  #5a6e72;
 }
 
-/* ── reset / base ────────────────────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  background: var(--bg);
-  color: var(--fg);
+html, body {
   font-family: 'Inter', system-ui, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-inline: 0;
+  background: #f8f6f2;
+  color: var(--text);
+  min-height: 100vh;
 }
 
-/* ── page wrapper ────────────────────────────────────────────────────────── */
-.page { max-width: 780px; margin: 0 auto; padding: 0 20px 60px; }
-
-/* ── header ─────────────────────────────────────────────────────────────── */
-.hd {
-  background: var(--navy);
+/* ── HERO ── */
+.hero {
+  background: var(--dark);
   color: #fff;
-  padding: 28px 32px 24px;
-  margin-inline: -20px;
-  margin-bottom: 32px;
+  text-align: center;
+  padding: 40px 24px 32px;
 }
-.hd-brand {
+.hero-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 28px;
+  font-size: clamp(2.6rem, 8vw, 3.4rem);
   font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--gold);
+  letter-spacing: .14em;
+  text-transform: uppercase;
   line-height: 1;
 }
-.hd-sub {
-  font-size: 11px;
+.hero-sub {
+  color: var(--gold);
+  font-size: clamp(.85rem, 2.5vw, 1rem);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-top: 8px;
   font-weight: 300;
-  letter-spacing: 0.06em;
-  color: #A8A8A8;
-  margin-top: 4px;
 }
-.hd-title {
-  margin-top: 16px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #E8E3D8;
+.hero-clinic {
+  color: rgba(255,255,255,.55);
+  font-size: .75rem;
+  letter-spacing: .1em;
+  margin-top: 6px;
 }
-.hd-intro {
-  margin-top: 10px;
-  font-size: 13px;
-  color: #C0BAB0;
-  line-height: 1.5;
-  max-width: 600px;
-}
-.hd-intro strong { color: var(--gold); }
 
-/* ── section headers ─────────────────────────────────────────────────────── */
-.sec-hd {
-  background: var(--section-hd);
-  color: var(--section-hd-fg);
-  padding: 10px 16px;
-  margin-top: 36px;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* ── INTRO BOX ── */
+.intro {
+  background: #fff;
   border-left: 4px solid var(--gold);
+  margin: 24px 16px;
+  padding: 18px 20px;
+  border-radius: 2px;
+  font-size: .88rem;
+  line-height: 1.7;
+  color: var(--text);
 }
-.sec-hd-num {
+.intro strong { color: var(--teal); }
+
+/* ── SECTION TITLE ── */
+.section-label {
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin: 28px 16px 12px;
+}
+
+/* ── 3 PILARES ── */
+.pilares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0 16px;
+}
+.pilar {
+  background: #fff;
+  border-top: 3px solid var(--teal);
+  padding: 14px 12px;
+  border-radius: 2px;
+}
+.pilar-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  color: var(--gold);
+  font-size: 1.6rem;
   font-weight: 600;
+  color: var(--teal);
   line-height: 1;
-  min-width: 28px;
 }
-.sec-hd-title {
-  font-size: 12px;
+.pilar-title {
+  font-size: .72rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.sub-hd {
-  background: var(--sub-hd);
-  color: var(--sub-hd-fg);
-  padding: 7px 14px;
-  margin-top: 24px;
-  margin-bottom: 14px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* ── question blocks ─────────────────────────────────────────────────────── */
-.q {
-  margin-bottom: 18px;
-}
-.q-label {
-  font-size: 13px;
-  color: var(--fg);
-  margin-bottom: 7px;
-  line-height: 1.45;
-}
-.q-label strong { font-weight: 600; }
-.q-scale {
-  font-size: 11px;
-  color: var(--fg3);
-  margin-bottom: 8px;
-  font-style: italic;
-  border-left: 3px solid var(--gold);
-  padding-left: 8px;
-}
-.q-note {
-  font-size: 11px;
-  color: var(--fg3);
-  font-style: italic;
-  margin-bottom: 8px;
-}
-
-/* ── grid of options ─────────────────────────────────────────────────────── */
-.opts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.opt {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border: 1.5px solid var(--check-border);
-  border-radius: 4px;
-  background: var(--check-bg);
-  cursor: pointer;
-  font-size: 13px;
-  color: var(--fg2);
-  transition: border-color .15s, background .15s, color .15s;
-  user-select: none;
+  color: var(--dark);
+  margin-top: 4px;
   line-height: 1.3;
 }
-.opt input { position: absolute; opacity: 0; width: 0; height: 0; }
-.opt-dot {
-  width: 14px; height: 14px;
-  border-radius: 50%;
-  border: 2px solid var(--check-border);
-  flex-shrink: 0;
-  transition: border-color .15s, background .15s;
-  position: relative;
+.pilar-text {
+  font-size: .68rem;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.5;
 }
-.opt-dot::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  border-radius: 50%;
-  background: transparent;
-  transition: background .15s;
-}
-.opt:hover { border-color: var(--teal); color: var(--fg); }
-.opt.selected {
-  border-color: var(--teal);
-  background: color-mix(in srgb, var(--teal) 8%, var(--check-bg));
-  color: var(--fg);
-}
-.opt.selected .opt-dot { border-color: var(--teal); }
-.opt.selected .opt-dot::after { background: var(--teal); }
 
-/* checkbox style */
-.opt-sq {
-  width: 14px; height: 14px;
-  border: 2px solid var(--check-border);
-  border-radius: 2px;
-  flex-shrink: 0;
-  transition: border-color .15s, background .15s;
-  display: flex; align-items: center; justify-content: center;
+/* ── 4 PASSOS ── */
+.passos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 0 16px;
 }
-.opt.selected .opt-sq {
-  border-color: var(--teal);
+.passo {
   background: var(--teal);
+  color: #fff;
+  padding: 14px 12px;
+  border-radius: 2px;
 }
-.opt.selected .opt-sq::after {
-  content: '';
-  width: 7px; height: 4px;
-  border-left: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-  transform: rotate(-45deg) translateY(-1px);
-  display: block;
-}
-
-/* multi-select full-width */
-.opts.col { flex-direction: column; gap: 6px; }
-.opts.col .opt { width: 100%; }
-
-/* ── text inputs ─────────────────────────────────────────────────────────── */
-.text-input {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1.5px solid var(--border);
-  border-radius: 4px;
-  background: var(--input-bg);
-  color: var(--fg);
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  line-height: 1.5;
-  transition: border-color .15s;
-  resize: vertical;
-}
-.text-input:focus { outline: none; border-color: var(--teal); }
-.text-input::placeholder { color: var(--fg3); }
-
-.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.row-2 .q { margin-bottom: 0; }
-
-/* ── table ───────────────────────────────────────────────────────────────── */
-.table-q { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 13px; }
-.table-q th {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  padding: 7px 10px;
-  font-weight: 600;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-align: left;
-  color: var(--fg2);
-}
-.table-q td {
-  border: 1px solid var(--border);
-  padding: 7px 10px;
-  vertical-align: middle;
-}
-.table-q tr:nth-child(even) td { background: var(--bg2); }
-.table-q .opts { justify-content: center; flex-wrap: nowrap; gap: 4px; }
-.table-q .opt { padding: 4px 8px; font-size: 12px; }
-
-/* ── send box ─────────────────────────────────────────────────────────────── */
-.send-box {
-  margin-top: 36px;
-  padding: 20px 24px;
-  background: var(--cream);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--gold);
-}
-.send-title {
+.passo-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 14px;
-  letter-spacing: 0.04em;
+  line-height: 1;
+  opacity: .9;
 }
-.send-steps { display: flex; flex-direction: column; gap: 12px; }
-.send-step {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 13px;
-  color: var(--fg2);
+.passo-title {
+  font-size: .72rem;
+  font-weight: 600;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+.passo-text {
+  font-size: .66rem;
+  opacity: .8;
+  margin-top: 5px;
   line-height: 1.5;
 }
-.send-num {
-  min-width: 24px; height: 24px;
-  background: var(--navy);
-  color: var(--gold);
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.send-or { color: var(--fg3); font-size: 12px; }
-.send-email { color: var(--navy); }
-.copy-btn {
-  margin-left: 8px;
-  padding: 3px 10px;
-  background: var(--navy);
-  color: var(--gold);
-  border: none;
-  border-radius: 3px;
-  font-size: 11px;
+.passo-tag {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: .6rem;
   font-weight: 600;
-  cursor: pointer;
-  letter-spacing: 0.04em;
-  transition: opacity .15s;
-  vertical-align: middle;
+  letter-spacing: .05em;
+  color: var(--gold);
+  text-transform: uppercase;
 }
-.copy-btn:hover { opacity: .8; }
 
-/* ── print styles ────────────────────────────────────────────────────────── */
-@media print {
-  /* Always show form, never show confirm screen */
-  body { background: #fff !important; color: #000 !important; font-size: 11px; }
-  .hd { background: #153D43 !important; color: #fff !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  .hd-brand { color: #C9A86A !important; }
-  .hd-sub, .hd-intro { color: #bbb !important; }
-  .hd-title { color: #E8E3D8 !important; }
-  .sec-hd { background: #153D43 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; page-break-after: avoid; }
-  .sub-hd { background: #245862 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; page-break-after: avoid; }
-  .send-box { display: none !important; }
-  .copy-btn { display: none !important; }
-  .page { padding-inline: 0; max-width: 100%; }
-  .hd { margin-inline: 0; }
-  .opt { border: 1px solid #ccc !important; page-break-inside: avoid; }
-  .opt.selected { background: #e4eef0 !important; border-color: #245862 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  .opt.selected .opt-sq { background: #245862 !important; border-color: #245862 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-  .text-input { border: 1px solid #ccc !important; background: #fafafa !important; }
-  .q { page-break-inside: avoid; }
-  .sec-hd, .sub-hd { page-break-inside: avoid; }
-  a { color: inherit; text-decoration: none; }
-  .print-footer { display: block !important; }
+/* ── NOTA ── */
+.nota {
+  background: var(--cream);
+  border-left: 3px solid var(--gold);
+  margin: 20px 16px;
+  padding: 14px 16px;
+  border-radius: 2px;
+  font-size: .82rem;
+  line-height: 1.6;
+  color: #4a3f2f;
 }
-.print-footer {
-  display: none;
+
+/* ── CTA ── */
+.cta-block {
+  background: var(--dark);
+  margin: 0 16px 16px;
+  border-radius: 4px;
+  padding: 20px 20px 22px;
+  color: #fff;
+}
+.cta-medica {
+  font-size: .8rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.cta-titles {
+  font-size: .65rem;
+  color: var(--gold);
+  opacity: .85;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.btn {
+  display: block;
   text-align: center;
-  font-size: 10px;
-  color: #888;
-  margin-top: 32px;
-  padding-top: 12px;
-  border-top: 1px solid #ddd;
+  text-decoration: none;
+  font-size: .82rem;
+  font-weight: 600;
+  padding: 13px 16px;
+  border-radius: 3px;
+  letter-spacing: .03em;
+}
+.btn-wa {
+  background: #25D366;
+  color: #fff;
+}
+.btn-site {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.35);
+  color: #fff;
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 16px 16px 32px;
+  font-size: .65rem;
+  color: var(--muted);
+  line-height: 1.7;
 }
 </style>
 </head>
 <body>
 
-<div class="page">
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-title">CHRONOS</div>
+  <div class="hero-sub">Sono · Ritmo · Longevidade</div>
+  <div class="hero-clinic">Clínica CARPA · Coimbra e Viseu</div>
+</div>
 
-  <!-- HEADER -->
-  <div class="hd">
-    <div class="hd-brand">CHRONOS</div>
-    <div class="hd-sub">Prof. Doutora Cláudia Chaves Loureiro, MD, PhD · Clínica CARPA · Coimbra e Viseu</div>
-    <div class="hd-title">Questionário Pré-Consulta Confidencial</div>
-    <div class="hd-intro">Por favor preencha antes da sua consulta. As suas respostas são estritamente confidenciais e serão analisadas pela Prof. Doutora Cláudia Chaves Loureiro para personalizar o seu programa CHRONOS. <strong>Tempo estimado: 10 minutos.</strong></div>
+<!-- INTRO -->
+<div class="intro">
+  <strong>O CHRONOS é para si?</strong> 🧬 Tem 40–65 anos, check-up sempre normal, mas acorda sem recuperar e sente que envelhece mais depressa do que devia?<br><br>
+  O CHRONOS junta sono e ritmo circadiano, biomarcadores de longevidade e um plano feito à medida de cada pessoa.
+</div>
+
+<!-- 3 PILARES -->
+<div class="section-label">O que avaliamos</div>
+<div class="pilares">
+  <div class="pilar">
+    <div class="pilar-num">01</div>
+    <div class="pilar-title">Avaliação do Sono</div>
+    <div class="pilar-text">Cronotipo objectivo e ritmo circadiano real. Rastreio de apneia silenciosa.</div>
   </div>
-
-  <!-- FORM -->
-  <div id="form-content">
-  <form id="qform" novalidate>
-
-    <!-- ══ 1. IDENTIFICAÇÃO ══════════════════════════════════════════════ -->
-    <div class="sec-hd"><span class="sec-hd-num">1</span><span class="sec-hd-title">Identificação</span></div>
-
-    <div class="row-2">
-      <div class="q"><div class="q-label">Nome completo</div><input class="text-input" type="text" id="nome" placeholder="Nome completo"></div>
-      <div class="q"><div class="q-label">Data de nascimento</div><input class="text-input" type="text" id="dob" placeholder="DD/MM/AAAA"></div>
-    </div>
-    <div class="row-2" style="margin-top:12px">
-      <div class="q"><div class="q-label">Profissão / Área de actividade</div><input class="text-input" type="text" id="profissao" placeholder=""></div>
-      <div class="q"><div class="q-label">Habilitações literárias</div><input class="text-input" type="text" id="habilit" placeholder=""></div>
-    </div>
-    <div class="row-2" style="margin-top:12px">
-      <div class="q"><div class="q-label">Email</div><input class="text-input" type="email" id="email" placeholder=""></div>
-      <div class="q"><div class="q-label">Telemóvel</div><input class="text-input" type="tel" id="tel" placeholder=""></div>
-    </div>
-    <div class="row-2" style="margin-top:12px">
-      <div class="q"><div class="q-label">Médico assistente / Médico de família</div><input class="text-input" type="text" id="medico" placeholder=""></div>
-      <div class="q"><div class="q-label">Seguradora (se aplicável)</div><input class="text-input" type="text" id="segur" placeholder=""></div>
-    </div>
-
-    <!-- ══ 2. SONO E RITMO CIRCADIANO ════════════════════════════════════ -->
-    <div class="sec-hd"><span class="sec-hd-num">2</span><span class="sec-hd-title">Sono e Ritmo Circadiano</span></div>
-    <div class="q-note" style="margin-bottom:16px">Responda com base no seu padrão habitual dos últimos 30 dias.</div>
-
-    <div class="sub-hd">2.1 Horários de sono habituais</div>
-    <div class="row-2">
-      <div class="q"><div class="q-label">Hora habitual a deitar (dias úteis)</div><input class="text-input" id="deitar_du" placeholder="ex: 23h30"></div>
-      <div class="q"><div class="q-label">Hora habitual a deitar (fim-de-semana)</div><input class="text-input" id="deitar_fs" placeholder=""></div>
-    </div>
-    <div class="row-2" style="margin-top:12px">
-      <div class="q"><div class="q-label">Hora habitual a acordar (dias úteis)</div><input class="text-input" id="acordar_du" placeholder="ex: 07h00"></div>
-      <div class="q"><div class="q-label">Hora habitual a acordar (fim-de-semana)</div><input class="text-input" id="acordar_fs" placeholder=""></div>
-    </div>
-    <div class="row-2" style="margin-top:12px">
-      <div class="q"><div class="q-label">Tempo habitual a adormecer após deitar (minutos)</div><input class="text-input" id="latencia" placeholder="ex: 15 min"></div>
-      <div class="q"><div class="q-label">N.º médio de horas de sono por noite</div><input class="text-input" id="horas_sono" placeholder="ex: 6h30"></div>
-    </div>
-    <div class="q" style="margin-top:12px">
-      <div class="q-label">Sente que o seu sono é suficiente para recuperar?</div>
-      <div class="opts" id="sono_suf"></div>
-    </div>
-
-    <div class="sub-hd">2.2 Qualidade subjectiva do sono — PSQI (adaptado)</div>
-    <div class="q-scale">Escala: 0 = Nunca · 1 = Menos de 1×/semana · 2 = 1–2×/semana · 3 = ≥3×/semana<br>Nas últimas 4 semanas, com que frequência teve os seguintes problemas para dormir?</div>
-
-    <table class="table-q" id="psqi_table">
-      <thead><tr><th>Problema</th><th style="text-align:center">0</th><th style="text-align:center">1</th><th style="text-align:center">2</th><th style="text-align:center">3</th></tr></thead>
-      <tbody id="psqi_body"></tbody>
-    </table>
-
-    <div class="q" style="margin-top:14px">
-      <div class="q-label">Como avalia a qualidade geral do seu sono nas últimas 4 semanas?</div>
-      <div class="opts" id="qual_sono"></div>
-    </div>
-
-    <div class="sub-hd">2.3 Sonolência diurna — Escala de Epworth (ESS)</div>
-    <div class="q-scale">0 = Nenhuma probabilidade · 1 = Ligeira · 2 = Moderada · 3 = Elevada<br>Qual a probabilidade de adormecer nas seguintes situações?</div>
-
-    <table class="table-q">
-      <thead><tr><th>Situação</th><th style="text-align:center">0</th><th style="text-align:center">1</th><th style="text-align:center">2</th><th style="text-align:center">3</th></tr></thead>
-      <tbody id="ess_body"></tbody>
-    </table>
-
-    <div class="sub-hd">2.4 Insónia — ISI (Índice de Gravidade da Insónia)</div>
-    <div class="q-scale">0 = Nenhum · 1 = Ligeiro · 2 = Moderado · 3 = Grave · 4 = Muito grave<br>Nas últimas 2 semanas, qual a gravidade dos seus problemas de sono?</div>
-
-    <table class="table-q">
-      <thead><tr><th>Problema</th><th style="text-align:center">0</th><th style="text-align:center">1</th><th style="text-align:center">2</th><th style="text-align:center">3</th><th style="text-align:center">4</th></tr></thead>
-      <tbody id="isi_body"></tbody>
-    </table>
-
-    <!-- ══ 3. CRONÓTIPO ═══════════════════════════════════════════════════ -->
-    <div class="sec-hd"><span class="sec-hd-num">3</span><span class="sec-hd-title">Cronótipo e Ritmo Circadiano</span></div>
-
-    <div class="sub-hd">3.1 Preferência de horário — MEQ (adaptado)</div>
-    <div class="q">
-      <div class="q-label">Se pudesse organizar o seu dia livremente, a que horas se levantaria?</div>
-      <div class="opts" id="meq_levantar"></div>
-    </div>
-    <div class="q">
-      <div class="q-label">A que horas se sentiria no seu pico de desempenho mental?</div>
-      <div class="opts" id="meq_pico"></div>
-    </div>
-    <div class="q">
-      <div class="q-label">Como se descreve em termos de cronótipo?</div>
-      <div class="opts" id="cronotipo"></div>
-    </div>
-
-    <div class="sub-hd">3.2 Horários nos dias livres</div>
-    <div class="row-2">
-      <div class="q"><div class="q-label">Hora a deitar (dias livres, sem alarme)</div><input class="text-input" id="deitar_livre" placeholder=""></div>
-      <div class="q"><div class="q-label">Hora a acordar (dias livres, sem alarme)</div><input class="text-input" id="acordar_livre" placeholder=""></div>
-    </div>
-    <div class="row-2" style="margin-top:12px">
-      <div class="q"><div class="q-label">Diferença entre hora de acordar nos dias livres vs dias úteis</div><input class="text-input" id="jetlag_dif" placeholder="ex: +1h30"></div>
-      <div class="q"><div class="q-label">N.º de noites por semana com sono ≥7h</div><input class="text-input" id="noites_7h" placeholder="ex: 3"></div>
-    </div>
-    <div class="q" style="margin-top:12px">
-      <div class="q-label">Usa alarme para acordar nos dias úteis?</div>
-      <div class="opts" id="alarme"></div>
-    </div>
-    <div class="q">
-      <div class="q-label">Sente que tem défice de sono acumulado?</div>
-      <div class="opts" id="deficit"></div>
-    </div>
-
-    <!-- ══ 4. ESTILO DE VIDA ══════════════════════════════════════════════ -->
-    <div class="sec-hd"><span class="sec-hd-num">4</span><span class="sec-hd-title">Estilo de Vida e Hábitos Circadianos</span></div>
-
-    <div class="sub-hd">4.1 Actividade física</div>
-    <div class="q"><div class="q-label">Com que frequência pratica exercício físico moderado a intenso?</div><div class="opts" id="exerc_freq"></div></div>
-    <div class="q"><div class="q-label">Habitualmente faz exercício a que hora do dia?</div><div class="opts" id="exerc_hora"></div></div>
-    <div class="q"><div class="q-label">Tipo(s) de exercício que pratica habitualmente</div><input class="text-input" id="exerc_tipo" placeholder=""></div>
-
-    <div class="sub-hd">4.2 Alimentação</div>
-    <div class="q"><div class="q-label">Como descreveria a sua dieta habitual?</div><div class="opts" id="dieta"></div></div>
-    <div class="row-2">
-      <div class="q"><div class="q-label">Hora habitual da primeira refeição</div><input class="text-input" id="ref1" placeholder="ex: 08h00"></div>
-      <div class="q"><div class="q-label">Hora habitual da última refeição</div><input class="text-input" id="ref_ult" placeholder="ex: 20h30"></div>
-    </div>
-    <div class="q" style="margin-top:12px"><div class="q-label">Pratica jejum intermitente ou restrição de janela alimentar?</div><div class="opts" id="jejum"></div></div>
-    <div class="q"><div class="q-label">Consome álcool?</div><div class="opts" id="alcool"></div></div>
-    <div class="q"><div class="q-label">Consome cafeína (café, chá, energéticas)?</div><div class="opts" id="cafeina"></div></div>
-    <div class="q"><div class="q-label">Última dose de cafeína habitualmente às</div><div class="opts" id="cafeina_hora"></div></div>
-
-    <div class="sub-hd">4.3 Luz e ambiente nocturno</div>
-    <div class="q"><div class="q-label">A que horas desliga os ecrãs habitualmente (telemóvel, computador, TV)?</div><div class="opts" id="ecras"></div></div>
-    <div class="q"><div class="q-label">Usa óculos de bloqueio de luz azul ou filtros de ecrã à noite?</div><div class="opts" id="luz_azul"></div></div>
-    <div class="q"><div class="q-label">O seu quarto de dormir é</div><div class="opts" id="quarto_luz"></div></div>
-    <div class="q"><div class="q-label">Temperatura do quarto</div><div class="opts" id="quarto_temp"></div></div>
-
-    <div class="sub-hd">4.4 Stress e recuperação</div>
-    <div class="q"><div class="q-label">Nível de stress percebido no último mês (0 = mínimo, 10 = máximo)</div><div class="opts" id="stress"></div></div>
-    <div class="q"><div class="q-label">Pratica técnicas de relaxamento ou mindfulness?</div><div class="opts" id="relax"></div></div>
-    <div class="q"><div class="q-label">Como avalia o seu equilíbrio trabalho–vida pessoal?</div><div class="opts" id="wb"></div></div>
-
-    <!-- ══ 6. BEM-ESTAR E LONGEVIDADE ══════════════════════════════════════════════════════════ -->
-    <div class="sec-hd"><span class="sec-hd-num">6</span><span class="sec-hd-title">Bem-Estar, Energia e Longevidade</span></div>
-
-    <div class="sub-hd">6.1 Auto-avaliação</div>
-    <div class="q">
-      <div class="q-label">Avalie cada área nas últimas 4 semanas <span style="color:var(--fg3)">(1 = muito mau · 5 = excelente)</span></div>
-      <div id="autoaval_table_wrap"></div>
-    </div>
-
-    <div class="sub-hd">6.2 Wearable</div>
-    <div class="q">
-      <div class="q-label">Usa dispositivos de monitorização de saúde (smartwatch, anel, monitor de sono)?</div>
-      <div class="opts" id="wearable"></div>
-    </div>
-    <div class="q" id="wearable_qual_q" style="display:none">
-      <div class="q-label">Qual o dispositivo?</div>
-      <input class="text-input" id="wearable_qual" placeholder="Ex: Oura Ring, Apple Watch, Whoop...">
-    </div>
-
-    <div class="sub-hd">6.3 Conhecimento em longevidade</div>
-    <div class="q">
-      <div class="q-label">Livros, podcasts ou outras fontes sobre longevidade que conhece ou segue:</div>
-      <textarea class="text-input" id="longevidade_media" rows="3" placeholder=""></textarea>
-    </div>
-
-    <!-- ══ 7. SAÚDE MENTAL E BEM-ESTAR ══════════════════════════════════════ -->
-    <div class="sec-hd"><span class="sec-hd-num">7</span><span class="sec-hd-title">Saúde Mental e Bem-Estar</span></div>
-
-    <div class="q">
-      <div class="q-label">Com que frequência se sente sobrecarregado/a pelas responsabilidades diárias?</div>
-      <div class="opts" id="sobrecarga"></div>
-    </div>
-    <div class="q">
-      <div class="q-label">Com que facilidade recupera emocionalmente após situações difíceis?</div>
-      <div class="opts" id="resiliencia"></div>
-    </div>
-    <div class="q">
-      <div class="q-label">Tem episódios de ansiedade?</div>
-      <div class="opts" id="ansiedade"></div>
-    </div>
-    <div class="q">
-      <div class="q-label">Nos últimos 3 meses sentiu burnout profissional (esgotamento, desapego)?</div>
-      <div class="opts" id="burnout"></div>
-    </div>
-    <div class="q">
-      <div class="q-label">Pratica meditação ou mindfulness?</div>
-      <div class="opts" id="meditacao"></div>
-    </div>
-    <div class="q">
-      <div class="q-label">Sente que a sua vida tem sentido e direcção clara?</div>
-      <div class="opts" id="proposito"></div>
-    </div>
-
-    <!-- ══ 8. PROGRAMA ════════════════════════════════════════════════════ -->
-    <div class="sec-hd"><span class="sec-hd-num">8</span><span class="sec-hd-title">Programa</span></div>
-
-    <div class="q">
-      <div class="q-label">Nível de programa de interesse <span style="color:var(--fg3)">(pode ser ajustado na consulta)</span></div>
-      <div class="opts" id="programa"></div>
-    </div>
-    <div class="q">
-      <div class="q-label">Como soube do programa CHRONOS?</div>
-      <div class="opts" id="como_soube"></div>
-    </div>
-
-  </form>
-  </div><!-- /form-content -->
-
-  <!-- INSTRUÇÃO PDF + EMAIL -->
-  <div class="send-box" id="send-box">
-    <div class="send-title">Passo final — Enviar para a clínica</div>
-    <div class="send-steps">
-      <div class="send-step">
-        <span class="send-num">1</span>
-        <span>Prima <strong>Ctrl+P</strong> <span class="send-or">(Windows/Linux)</span> ou <strong>⌘+P</strong> <span class="send-or">(Mac)</span> e escolha <strong>"Guardar como PDF"</strong> — o questionário preenchido fica guardado no seu computador.</span>
-      </div>
-      <div class="send-step">
-        <span class="send-num">2</span>
-        <span>Envie o PDF por email para <strong class="send-email">clinicacarpa@clinicacarpa.pt</strong> antes da sua consulta.
-          <button class="copy-btn" id="copy-email-btn" onclick="copyEmail()">Copiar email</button>
-        </span>
-      </div>
-    </div>
+  <div class="pilar">
+    <div class="pilar-num">02</div>
+    <div class="pilar-title">Idade Biológica</div>
+    <div class="pilar-text">Painel de biomarcadores de longevidade. Relógio epigenético.</div>
   </div>
-
-  <div class="print-footer">
-    CHRONOS · Sono &amp; Longevidade · Prof. Doutora Cláudia Chaves Loureiro, MD, PhD · Clínica CARPA · Coimbra e Viseu
+  <div class="pilar">
+    <div class="pilar-num">03</div>
+    <div class="pilar-title">Protocolo Personalizado</div>
+    <div class="pilar-text">Mapa de biomarcadores com plano de intervenção a 90 dias.</div>
   </div>
-</div><!-- /page -->
+</div>
 
-<script>
-/* ── helper: build option groups ──────────────────────────────────────── */
-function buildOpts(containerId, items, multi=false) {
-  const el = document.getElementById(containerId);
-  if (!el) return;
-  el.innerHTML = '';
-  items.forEach(label => {
-    const wrap = document.createElement('label');
-    wrap.className = 'opt';
-    const inp = document.createElement('input');
-    inp.type = multi ? 'checkbox' : 'radio';
-    inp.name = containerId + (multi ? '[]' : '');
-    inp.value = label;
-    const indicator = document.createElement('span');
-    indicator.className = multi ? 'opt-sq' : 'opt-dot';
-    const text = document.createElement('span');
-    text.textContent = label;
-    wrap.appendChild(inp);
-    wrap.appendChild(indicator);
-    wrap.appendChild(text);
-    wrap.addEventListener('click', e => {
-      e.preventDefault();
-      if (multi) {
-        inp.checked = !inp.checked;
-        wrap.classList.toggle('selected', inp.checked);
-      } else {
-        el.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
-        inp.checked = true;
-        wrap.classList.add('selected');
-      }
-      saveState();
-    });
-    el.appendChild(wrap);
-  });
-}
+<!-- 4 PASSOS -->
+<div class="section-label">Como funciona</div>
+<div class="passos">
+  <div class="passo">
+    <div class="passo-num">1</div>
+    <div class="passo-title">1ª Consulta</div>
+    <div class="passo-text">Avaliação completa e prescrição de exames. Interpretação das análises existentes.</div>
+  </div>
+  <div class="passo">
+    <div class="passo-num">2</div>
+    <div class="passo-title">Estudos do Sono</div>
+    <div class="passo-text">Actigrafia · Rastreio cardiorrespiratório · Polissonografia nível 2</div>
+    <div class="passo-tag">quando indicado</div>
+  </div>
+  <div class="passo">
+    <div class="passo-num">3</div>
+    <div class="passo-title">Análises Avançadas</div>
+    <div class="passo-text">Biomarcadores de longevidade · Relógio epigenético · Ritmo circadiano · Perfil hormonal</div>
+    <div class="passo-tag">conforme nível</div>
+  </div>
+  <div class="passo">
+    <div class="passo-num">4</div>
+    <div class="passo-title">Relatório &amp; Plano</div>
+    <div class="passo-text">Mapa de biomarcadores · Plano de 90 dias</div>
+    <div class="passo-tag">incluído</div>
+  </div>
+</div>
 
-function buildTable(tbodyId, rows, cols) {
-  const tbody = document.getElementById(tbodyId);
-  if (!tbody) return;
-  rows.forEach((label, ri) => {
-    const tr = document.createElement('tr');
-    const td0 = document.createElement('td');
-    td0.textContent = label;
-    tr.appendChild(td0);
-    cols.forEach(c => {
-      const td = document.createElement('td');
-      td.style.textAlign = 'center';
-      const wrap = document.createElement('label');
-      wrap.className = 'opt';
-      wrap.style.cssText = 'display:inline-flex;padding:4px 10px;justify-content:center;';
-      const inp = document.createElement('input');
-      inp.type = 'radio';
-      inp.name = tbodyId + '_' + ri;
-      inp.value = c;
-      const dot = document.createElement('span');
-      dot.className = 'opt-dot';
-      const txt = document.createElement('span');
-      txt.textContent = c;
-      wrap.appendChild(inp);
-      wrap.appendChild(dot);
-      wrap.appendChild(txt);
-      wrap.addEventListener('click', e => {
-        e.preventDefault();
-        inp.checked = true;
-        tbody.querySelectorAll(`[name="${inp.name}"]`).forEach(i => i.closest('.opt').classList.remove('selected'));
-        wrap.classList.add('selected');
-        saveState();
-      });
-      td.appendChild(wrap);
-      tr.appendChild(td);
-    });
-    tbody.appendChild(tr);
-  });
-}
+<!-- NOTA -->
+<div class="nota">
+  O nível de programa adequado é definido em consulta — de acordo com o seu perfil clínico e objectivos.<br>
+  <strong>Se tiver análises recentes, traga-as.</strong>
+</div>
 
-/* ── initialise all fields ─────────────────────────────────────────────── */
-buildOpts('programa', ['Essencial (N1)','Sono e Biorritmo (N2)','Sono, Biorritmo e Longevidade (N3)','Ainda não sei']);
-buildOpts('como_soube', ['Redes sociais','Recomendação de médico','Recomendação pessoal','Website CARPA','Outro'], true);
-buildOpts('sono_suf', ['Sim, geralmente','Raramente','Nunca / quase nunca']);
+<!-- CTA -->
+<div class="cta-block">
+  <div class="cta-medica">Prof. Dra. Cláudia Loureiro</div>
+  <div class="cta-titles">Pneumologista · Competência em Medicina do Sono<br>Diploma Europeu ESRS · Doutoramento FMUC</div>
+  <div class="cta-buttons">
+    <a class="btn btn-wa" href="https://wa.me/+351927133720">💬 Marcar consulta via WhatsApp</a>
+    <a class="btn btn-site" href="https://clinicacarpa.pt" target="_blank">clinicacarpa.pt</a>
+  </div>
+</div>
 
-buildTable('psqi_body', [
-  'Dificuldade em adormecer (>30 min)',
-  'Acordar durante a noite',
-  'Acordar muito cedo e não conseguir voltar a adormecer',
-  'Dificuldade em respirar (engasgos, ronco, pausas)',
-  'Sensação de pernas irrequietas ou movimentos involuntários',
-  'Dificuldade em dormir por dor, desconforto, calor ou frio',
-  'Sonhos perturbadores ou muito vividos'
-], ['0','1','2','3']);
-
-buildOpts('qual_sono', ['Muito boa','Boa','Razoável','Má','Muito má']);
-
-buildTable('ess_body', [
-  'Sentado a ler',
-  'A ver televisão',
-  'Sentado, inactivo, em local público (teatro, reunião)',
-  'Como passageiro de carro durante 1 hora sem paragem',
-  'Deitado a descansar à tarde quando as circunstâncias o permitem',
-  'Sentado a falar com alguém',
-  'Sentado tranquilamente após almoço sem álcool',
-  'Em carro parado no trânsito por alguns minutos'
-], ['0','1','2','3']);
-
-buildTable('isi_body', [
-  'Dificuldade em adormecer',
-  'Dificuldade em manter o sono',
-  'Problema em acordar demasiado cedo',
-  'Satisfação com o seu padrão de sono actual',
-  'Interferência do sono nas actividades diárias',
-  'Quanto é que os outros notam deterioração da sua qualidade de vida por causa do sono',
-  'Quão preocupado/a está com os seus problemas de sono'
-], ['0','1','2','3','4']);
-
-buildOpts('meq_levantar', ['05h–06h30','06h30–07h45','07h45–09h45','09h45–11h','11h–12h']);
-buildOpts('meq_pico', ['Manhã cedo (8h–10h)','Manhã (10h–12h)','Tarde (14h–17h)','Fim de tarde / noite (17h–22h)']);
-buildOpts('cronotipo', ['Definitivamente matutino','Moderadamente matutino','Intermédio / sem preferência','Moderadamente vespertino','Definitivamente vespertino']);
-buildOpts('alarme', ['Sempre','Frequentemente','Raramente','Nunca']);
-buildOpts('deficit', ['Sim, marcadamente','Sim, ligeiramente','Não']);
-
-buildOpts('exerc_freq', ['Diariamente','3–5×/semana','1–2×/semana','Raramente','Nunca']);
-buildOpts('exerc_hora', ['Manhã (antes das 12h)','Tarde (12h–18h)','Fim da tarde / noite (após 18h)','Varia muito']);
-buildOpts('dieta', ['Mediterrânica / equilibrada','Elevada em proteína','Restritiva (vegetariana, vegan, etc.)','Sem padrão definido']);
-buildOpts('jejum', ['Sim, regularmente','Ocasionalmente','Não']);
-buildOpts('alcool', ['Não','Raramente','1–3×/semana','Diariamente']);
-buildOpts('cafeina', ['Não','1 por dia','2–3 por dia','>3 por dia']);
-buildOpts('cafeina_hora', ['Antes das 12h','12h–14h','14h–17h','Após 17h']);
-buildOpts('ecras', ['Antes das 21h','21h–22h30','22h30–00h','Após meia-noite','Não tenho esse hábito']);
-buildOpts('luz_azul', ['Sim, regularmente','Ocasionalmente','Não']);
-buildOpts('quarto_luz', ['Escuro e silencioso','Com alguma luz / ruído exterior','Claro ou ruidoso']);
-buildOpts('quarto_temp', ['Fresco (16–19ºC)','Ameno (20–22ºC)','Quente (>22ºC)']);
-buildOpts('stress', ['0–2','3–4','5–6','7–8','9–10']);
-buildOpts('relax', ['Sim, regularmente','Ocasionalmente','Não']);
-buildOpts('wb', ['Bom','Razoável','Mau']);
-
-// ── secção 6 ─────────────────────────────────────────────────────────────
-// 6.1 Tabela auto-avaliação
-(function() {
-  const areas = [
-    'Nível de energia ao longo do dia',
-    'Concentração e foco durante o trabalho',
-    'Memória e capacidade de retenção',
-    'Humor e estabilidade emocional',
-    'Motivação para actividades',
-    'Recuperação física após exercício',
-    'Satisfação geral com qualidade de vida'
-  ];
-  const wrap = document.getElementById('autoaval_table_wrap');
-  if (!wrap) return;
-  const table = document.createElement('table');
-  table.className = 'table-q';
-  table.innerHTML = '<thead><tr><th>Área</th><th style="text-align:center">1</th><th style="text-align:center">2</th><th style="text-align:center">3</th><th style="text-align:center">4</th><th style="text-align:center">5</th></tr></thead>';
-  const tbody = document.createElement('tbody');
-  areas.forEach((label, ri) => {
-    const tr = document.createElement('tr');
-    const td0 = document.createElement('td'); td0.textContent = label; tr.appendChild(td0);
-    [1,2,3,4,5].forEach(c => {
-      const td = document.createElement('td'); td.style.textAlign = 'center';
-      const lbl = document.createElement('label'); lbl.className = 'opt';
-      lbl.style.cssText = 'display:inline-flex;padding:4px 10px;justify-content:center;';
-      const inp = document.createElement('input'); inp.type = 'radio'; inp.name = 'autoaval_' + ri; inp.value = c;
-      const dot = document.createElement('span'); dot.className = 'opt-dot';
-      const txt = document.createElement('span'); txt.textContent = c;
-      lbl.appendChild(inp); lbl.appendChild(dot); lbl.appendChild(txt);
-      lbl.addEventListener('click', e => {
-        e.preventDefault(); inp.checked = true;
-        tbody.querySelectorAll('[name="' + inp.name + '"]').forEach(i => i.closest('.opt').classList.remove('selected'));
-        lbl.classList.add('selected');
-        saveState();
-      });
-      td.appendChild(lbl); tr.appendChild(td);
-    });
-    tbody.appendChild(tr);
-  });
-  table.appendChild(tbody); wrap.appendChild(table);
-})();
-
-buildOpts('wearable', ['Não','Sim']);
-document.getElementById('wearable').addEventListener('click', () => {
-  setTimeout(() => {
-    const sel = document.querySelector('#wearable .opt.selected span:last-child');
-    document.getElementById('wearable_qual_q').style.display = (sel && sel.textContent === 'Sim') ? '' : 'none';
-  }, 50);
-});
-// 6.3 longevidade_media é agora textarea — sem buildOpts
-
-// ── secção 7 ─────────────────────────────────────────────────────────────
-buildOpts('sobrecarga', ['Nunca','Raramente','Às vezes','Frequentemente','Sempre']);
-buildOpts('resiliencia', ['Muito fácil','Fácil','Moderada','Difícil','Muito difícil']);
-buildOpts('ansiedade', ['Não','Raramente','Com alguma frequência','Frequentemente']);
-buildOpts('burnout', ['Não','Ligeiramente','Moderadamente','Sim, significativamente']);
-buildOpts('meditacao', ['Sim, diariamente','Sim, várias vezes/semana','Raramente','Nunca']);
-buildOpts('proposito', ['Discordo totalmente','Discordo','Neutro','Concordo','Concordo totalmente']);
-
-/* ── persist state to localStorage ─────────────────────────────────────── */
-function saveState() {
-  try {
-    const data = {};
-    document.querySelectorAll('input[type=text], input[type=email], input[type=tel], textarea').forEach(el => { if (el.id) data[el.id] = el.value; });
-    document.querySelectorAll('input[type=radio]:checked, input[type=checkbox]:checked').forEach(el => {
-      if (!data[el.name]) data[el.name] = [];
-      if (!Array.isArray(data[el.name])) data[el.name] = [data[el.name]];
-      data[el.name].push(el.value);
-    });
-    localStorage.setItem('chronos_q', JSON.stringify(data));
-  } catch(e) {}
-}
-
-function loadState() {
-  try {
-    const raw = localStorage.getItem('chronos_q');
-    if (!raw) return;
-    const data = JSON.parse(raw);
-    Object.entries(data).forEach(([k, v]) => {
-      const vals = Array.isArray(v) ? v : [v];
-      const textEl = document.getElementById(k);
-      if (textEl && (textEl.tagName === 'INPUT' || textEl.tagName === 'TEXTAREA')) {
-        textEl.value = vals[0] || '';
-        return;
-      }
-      vals.forEach(val => {
-        const inp = document.querySelector(`input[name="${k}"][value="${CSS.escape(val)}"]`);
-        if (inp) {
-          inp.checked = true;
-          inp.closest('.opt').classList.add('selected');
-        }
-      });
-    });
-    // reveal conditional fields
-    ['th','testo','wearable','medit_app','tabaco'].forEach(id => {
-      const sel = document.querySelector(`#${id} .opt.selected span:last-child`);
-      if (!sel) return;
-      if (id === 'th' && sel.textContent === 'Sim') document.getElementById('th_qual_q').style.display = '';
-    });
-  } catch(e) {}
-}
-
-// Auto-save on input
-document.getElementById('qform').addEventListener('input', saveState);
-loadState();
-
-/* ── copy email ─────────────────────────────────────────────────────────── */
-function copyEmail() {
-  const email = 'clinicacarpa@clinicacarpa.pt';
-  const btn = document.getElementById('copy-email-btn');
-  try {
-    navigator.clipboard.writeText(email).then(() => {
-      btn.textContent = '✓ Copiado';
-      setTimeout(() => { btn.textContent = 'Copiar email'; }, 2000);
-    });
-  } catch(e) {
-    const ta = document.createElement('textarea');
-    ta.value = email;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    btn.textContent = '✓ Copiado';
-    setTimeout(() => { btn.textContent = 'Copiar email'; }, 2000);
-  }
-}
-</script>
+<footer>
+  CHRONOS · Sono &amp; Longevidade<br>
+  Prof. Doutora Cláudia Chaves Loureiro, MD, PhD<br>
+  Clínica CARPA · Coimbra e Viseu
+</footer>
 
 </body>
 </html>
-
-</body></html>
