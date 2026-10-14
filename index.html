@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHRONOS · Sono, Ritmo e Longevidade</title>
+<title>Prof. Dra. Cláudia Loureiro — Link in Bio</title>
+<meta name="description" content="Pneumologia, Asma, Alergia Respiratória e Medicina do Sono — Coimbra e Viseu. Consultas, contacto, entrevistas e publicações científicas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap">
 <style>
@@ -18,11 +19,12 @@
   --light:  #eaf3f4;
   --text:   #1a1a1a;
   --muted:  #5a6e72;
+  --bg:     #f8f6f2;
 }
 
 html, body {
   font-family: 'Inter', system-ui, sans-serif;
-  background: #f8f6f2;
+  background: var(--bg);
   color: var(--text);
   min-height: 100vh;
 }
@@ -32,196 +34,222 @@ html, body {
   background: var(--dark);
   color: #fff;
   text-align: center;
-  padding: 40px 24px 32px;
+  padding: 36px 24px 28px;
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: .06em;
+  line-height: 1.1;
 }
 .hero-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.6rem, 8vw, 3.4rem);
-  font-weight: 600;
+  color: var(--gold);
+  font-size: clamp(.75rem, 2.2vw, .88rem);
   letter-spacing: .14em;
   text-transform: uppercase;
-  line-height: 1;
-}
-.hero-sub {
-  color: var(--gold);
-  font-size: clamp(.85rem, 2.5vw, 1rem);
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  margin-top: 8px;
+  margin-top: 6px;
   font-weight: 300;
+  line-height: 1.6;
 }
 .hero-clinic {
-  color: rgba(255,255,255,.55);
-  font-size: .75rem;
-  letter-spacing: .1em;
+  color: rgba(255,255,255,.5);
+  font-size: .7rem;
+  letter-spacing: .08em;
   margin-top: 6px;
 }
 
-/* ── INTRO BOX ── */
-.intro {
-  background: #fff;
-  border-left: 4px solid var(--gold);
-  margin: 24px 16px;
-  padding: 18px 20px;
-  border-radius: 2px;
-  font-size: .88rem;
-  line-height: 1.7;
-  color: var(--text);
-}
-.intro strong { color: var(--teal); }
-
-/* ── SECTION TITLE ── */
-.section-label {
-  font-size: .62rem;
-  font-weight: 600;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-align: center;
-  margin: 28px 16px 12px;
+/* ── WRAP ── */
+.wrap {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
 }
 
-/* ── 3 PILARES ── */
-.pilares {
+/* ── CONSULTAS ── */
+.consultas {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin: 0 16px;
-}
-.pilar {
-  background: #fff;
-  border-top: 3px solid var(--teal);
-  padding: 14px 12px;
-  border-radius: 2px;
-}
-.pilar-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--teal);
-  line-height: 1;
-}
-.pilar-title {
-  font-size: .72rem;
-  font-weight: 600;
-  color: var(--dark);
-  margin-top: 4px;
-  line-height: 1.3;
-}
-.pilar-text {
-  font-size: .68rem;
-  color: var(--muted);
-  margin-top: 6px;
-  line-height: 1.5;
-}
-
-/* ── 4 PASSOS ── */
-.passos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin: 0 16px;
-}
-.passo {
-  background: var(--teal);
-  color: #fff;
-  padding: 14px 12px;
-  border-radius: 2px;
-}
-.passo-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 1;
-  opacity: .9;
-}
-.passo-title {
-  font-size: .72rem;
-  font-weight: 600;
-  margin-top: 4px;
-  line-height: 1.3;
-}
-.passo-text {
-  font-size: .66rem;
-  opacity: .8;
-  margin-top: 5px;
-  line-height: 1.5;
-}
-.passo-tag {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: .6rem;
-  font-weight: 600;
-  letter-spacing: .05em;
-  color: var(--gold);
-  text-transform: uppercase;
-}
-
-/* ── NOTA ── */
-.nota {
-  background: var(--cream);
-  border-left: 3px solid var(--gold);
-  margin: 20px 16px;
-  padding: 14px 16px;
-  border-radius: 2px;
-  font-size: .82rem;
-  line-height: 1.6;
-  color: #4a3f2f;
-}
-
-/* ── CTA ── */
-.cta-block {
-  background: var(--dark);
-  margin: 0 16px 16px;
-  border-radius: 4px;
-  padding: 20px 20px 22px;
-  color: #fff;
-}
-.cta-medica {
-  font-size: .8rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 2px;
-}
-.cta-titles {
-  font-size: .65rem;
-  color: var(--gold);
-  opacity: .85;
-  line-height: 1.5;
-  margin-bottom: 14px;
-}
-.cta-buttons {
-  display: flex;
-  flex-direction: column;
   gap: 8px;
+  margin-top: 20px;
 }
 .btn {
   display: block;
   text-align: center;
   text-decoration: none;
-  font-size: .82rem;
+  font-size: .84rem;
   font-weight: 600;
   padding: 13px 16px;
   border-radius: 3px;
-  letter-spacing: .03em;
+  letter-spacing: .02em;
+}
+.btn-consulta {
+  background: #fff;
+  color: var(--dark);
+  border: 1px solid #d9d0c4;
+}
+.btn-email {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid #d9d0c4;
+  font-weight: 400;
+  font-size: .8rem;
+}
+
+/* ── SECTION DIVIDER ── */
+.section-label {
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin: 28px 0 12px;
+}
+
+/* ── CHRONOS CARD ── */
+.chronos-card {
+  background: var(--dark);
+  border-radius: 4px;
+  padding: 22px 20px 20px;
+  color: #fff;
+}
+.chronos-header {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.chronos-sub {
+  color: var(--gold);
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  font-weight: 300;
+}
+.chronos-desc {
+  font-size: .82rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,.8);
+  margin-top: 12px;
+  border-left: 2px solid var(--gold);
+  padding-left: 12px;
+}
+.chronos-bullets {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+.cbullet {
+  background: rgba(255,255,255,.07);
+  border-top: 2px solid var(--teal2);
+  padding: 10px 8px;
+  border-radius: 2px;
+  font-size: .65rem;
+  color: rgba(255,255,255,.85);
+  line-height: 1.4;
+}
+.cbullet strong {
+  display: block;
+  font-size: .7rem;
+  color: #fff;
+  margin-bottom: 3px;
+}
+.chronos-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
 }
 .btn-wa {
   background: #25D366;
   color: #fff;
+  font-size: .84rem;
+  font-weight: 600;
+  padding: 13px 16px;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
 }
-.btn-site {
+.btn-saibamais {
   background: transparent;
-  border: 1px solid rgba(255,255,255,.35);
-  color: #fff;
+  border: 1px solid rgba(255,255,255,.3);
+  color: rgba(255,255,255,.85);
+  font-size: .8rem;
+  font-weight: 500;
+  padding: 11px 16px;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+/* ── ENTREVISTAS ── */
+.entrevistas {
+  background: #fff;
+  border-radius: 3px;
+  padding: 16px 18px;
+  border: 1px solid #e6dfd5;
+}
+.entrevistas ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.entrevistas li a {
+  font-size: .8rem;
+  color: var(--teal);
+  text-decoration: none;
+  line-height: 1.5;
+  display: block;
+  padding-left: 12px;
+  border-left: 2px solid var(--gold);
+}
+.entrevistas li a:hover { text-decoration: underline; }
+
+/* ── PUBLICAÇÕES ── */
+.pubs {
+  background: #fff;
+  border-radius: 3px;
+  padding: 16px 18px;
+  border: 1px solid #e6dfd5;
+  text-align: center;
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.pubs a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ── INSTAGRAM ── */
+.instagram {
+  text-align: center;
+  padding: 14px 0 4px;
+  font-size: .82rem;
+  color: var(--muted);
+}
+.instagram a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
 }
 
 /* ── FOOTER ── */
 footer {
   text-align: center;
-  padding: 16px 16px 32px;
-  font-size: .65rem;
-  color: var(--muted);
+  padding: 20px 16px 32px;
+  font-size: .62rem;
+  color: #aaa;
   line-height: 1.7;
+  border-top: 1px dashed #e0d8ce;
+  margin-top: 24px;
 }
 </style>
 </head>
@@ -229,85 +257,68 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-title">CHRONOS</div>
-  <div class="hero-sub">Sono · Ritmo · Longevidade</div>
-  <div class="hero-clinic">Clínica CARPA · Coimbra e Viseu</div>
+  <div class="hero-name">Prof. Dra. Cláudia Loureiro</div>
+  <div class="hero-title">Pneumologista · Medicina do Sono<br>Diploma Europeu ESRS · Doutoramento FMUC</div>
+  <div class="hero-clinic">OM 43240 · Coimbra e Viseu</div>
 </div>
 
-<!-- INTRO -->
-<div class="intro">
-  <strong>O CHRONOS é para si?</strong> 🧬 Tem 40–65 anos, check-up sempre normal, mas acorda sem recuperar e sente que envelhece mais depressa do que devia?<br><br>
-  O CHRONOS junta sono e ritmo circadiano, biomarcadores de longevidade e um plano feito à medida de cada pessoa.
-</div>
+<div class="wrap">
 
-<!-- 3 PILARES -->
-<div class="section-label">O que avaliamos</div>
-<div class="pilares">
-  <div class="pilar">
-    <div class="pilar-num">01</div>
-    <div class="pilar-title">Avaliação do Sono</div>
-    <div class="pilar-text">Cronotipo objectivo e ritmo circadiano real. Rastreio de apneia silenciosa.</div>
+  <!-- CONSULTAS -->
+  <div class="section-label">Consultas</div>
+  <div class="consultas">
+    <a class="btn btn-consulta" href="https://www.clinicacarpa.pt/marcacoes/" target="_blank" rel="noopener">📅 Clínica CARPA — Coimbra &amp; Viseu</a>
+    <a class="btn btn-consulta" href="https://www.cuf.pt/medicos/claudia-chaves-loureiro" target="_blank" rel="noopener">📅 CUF — Coimbra</a>
+    <a class="btn btn-consulta" href="https://ofidia.pt/#marcacao" target="_blank" rel="noopener">📅 Ofidia Clinic — Coimbra</a>
+    <a class="btn btn-email" href="mailto:cchloureiro@gmail.com">✉️ cchloureiro@gmail.com</a>
   </div>
-  <div class="pilar">
-    <div class="pilar-num">02</div>
-    <div class="pilar-title">Idade Biológica</div>
-    <div class="pilar-text">Painel de biomarcadores de longevidade. Relógio epigenético.</div>
-  </div>
-  <div class="pilar">
-    <div class="pilar-num">03</div>
-    <div class="pilar-title">Protocolo Personalizado</div>
-    <div class="pilar-text">Mapa de biomarcadores com plano de intervenção a 90 dias.</div>
-  </div>
-</div>
 
-<!-- 4 PASSOS -->
-<div class="section-label">Como funciona</div>
-<div class="passos">
-  <div class="passo">
-    <div class="passo-num">1</div>
-    <div class="passo-title">1ª Consulta</div>
-    <div class="passo-text">Avaliação completa e prescrição de exames. Interpretação das análises existentes.</div>
+  <!-- CHRONOS -->
+  <div class="section-label">Programa CHRONOS</div>
+  <div class="chronos-card">
+    <div class="chronos-header">CHRONOS</div>
+    <div class="chronos-sub">Sono · Ritmo · Longevidade</div>
+    <div class="chronos-desc">
+      Para quem já faz check-up anual — e quer saber o que está para além dos valores normais. Diagnóstico objectivo do sono · Idade biológica · Protocolo personalizado.
+    </div>
+    <div class="chronos-bullets">
+      <div class="cbullet"><strong>01</strong>Avaliação do Sono &amp; Cronotipo</div>
+      <div class="cbullet"><strong>02</strong>Idade Biológica &amp; Biomarcadores</div>
+      <div class="cbullet"><strong>03</strong>Plano Personalizado 90 dias</div>
+    </div>
+    <div class="chronos-buttons">
+      <a class="btn-wa" href="https://wa.me/351925226009?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+o+programa+CHRONOS+e+marcar+uma+consulta+inicial.">💬 Marcar consulta via WhatsApp</a>
+      <a class="btn-saibamais" href="https://drive.google.com/file/d/17EzNucMOLEZTtL-Rap09R9TGtsQkT1QV/view?usp=sharing" target="_blank" rel="noopener">Saber mais sobre o CHRONOS</a>
+    </div>
   </div>
-  <div class="passo">
-    <div class="passo-num">2</div>
-    <div class="passo-title">Estudos do Sono</div>
-    <div class="passo-text">Actigrafia · Rastreio cardiorrespiratório · Polissonografia nível 2</div>
-    <div class="passo-tag">quando indicado</div>
-  </div>
-  <div class="passo">
-    <div class="passo-num">3</div>
-    <div class="passo-title">Análises Avançadas</div>
-    <div class="passo-text">Biomarcadores de longevidade · Relógio epigenético · Ritmo circadiano · Perfil hormonal</div>
-    <div class="passo-tag">conforme nível</div>
-  </div>
-  <div class="passo">
-    <div class="passo-num">4</div>
-    <div class="passo-title">Relatório &amp; Plano</div>
-    <div class="passo-text">Mapa de biomarcadores · Plano de 90 dias</div>
-    <div class="passo-tag">incluído</div>
-  </div>
-</div>
 
-<!-- NOTA -->
-<div class="nota">
-  O nível de programa adequado é definido em consulta — de acordo com o seu perfil clínico e objectivos.<br>
-  <strong>Se tiver análises recentes, traga-as.</strong>
-</div>
-
-<!-- CTA -->
-<div class="cta-block">
-  <div class="cta-medica">Prof. Dra. Cláudia Loureiro</div>
-  <div class="cta-titles">Pneumologista · Competência em Medicina do Sono<br>Diploma Europeu ESRS · Doutoramento FMUC</div>
-  <div class="cta-buttons">
-    <a class="btn btn-wa" href="https://wa.me/351925226009">💬 Marcar consulta via WhatsApp</a>
-    <a class="btn btn-site" href="https://clinicacarpa.pt" target="_blank">clinicacarpa.pt</a>
+  <!-- ENTREVISTAS -->
+  <div class="section-label">Entrevistas &amp; Opinião</div>
+  <div class="entrevistas">
+    <ul>
+      <li><a href="https://www.noticiasaominuto.com/lifestyle/2254953/o-seu-mal-e-sono-sabe-porque-e-tao-importante-dormir-olhe-que-nao" target="_blank" rel="noopener">Porque é tão importante dormir — Notícias ao Minuto</a></li>
+      <li><a href="https://www.atlasdasaude.pt/artigos/sono-insuficiente-e-envelhecimento-precoce" target="_blank" rel="noopener">Sono insuficiente e envelhecimento precoce — Atlas da Saúde</a></li>
+      <li><a href="https://www.jornalmedico.pt/opiniao/42952-claudia-loureiro-sono-insuficiente-e-envelhecimento-precoce.html" target="_blank" rel="noopener">Sono insuficiente e envelhecimento precoce — Jornal Médico</a></li>
+    </ul>
   </div>
+
+  <!-- PUBLICAÇÕES -->
+  <div class="section-label">Publicações Científicas</div>
+  <div class="pubs">
+    Disponíveis no <a href="https://orcid.org/0000-0003-0438-6126" target="_blank" rel="noopener">perfil ORCID</a>
+  </div>
+
+  <!-- INSTAGRAM -->
+  <div class="instagram">
+    📲 <a href="https://www.instagram.com/prof.claudia.loureiro" target="_blank" rel="noopener">@prof.claudia.loureiro</a>
+  </div>
+
 </div>
 
 <footer>
-  CHRONOS · Sono &amp; Longevidade<br>
   Prof. Doutora Cláudia Chaves Loureiro, MD, PhD<br>
-  Clínica CARPA · Coimbra e Viseu
+  Clínica CARPA · Coimbra e Viseu<br>
+  Educação geral; não substitui consulta médica. © 2025
 </footer>
 
 </body>
